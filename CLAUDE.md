@@ -7,8 +7,8 @@
 - English only in code, comments, messages, README and schemas. Other languages only in `locales/<lang>.json` and
   `tests/fixtures/`. Keys, statuses and codes are enum values (`src/enums.mjs`) with a label in `locales/en.json`;
   a text a person reads — a key in `locales/` (`textOf`), the page's texts — `page.*` keys.
-- The service knows no host: no product names, folders or formats of a host anywhere — run
-  `JIRA_FLOW_FORBID=<words> npm test` with the words of the hosts you know.
+- The service knows no host: no product names, folders or formats of a host anywhere; the check is
+  `JIRA_FLOW_FORBID=<words> npm test` with the words of the hosts you know (run only when the human asks).
 - Nothing personal in the repository: no site names, emails, account ids or people of a real Jira; tests use
   `example.atlassian.net`, `KEY` and made-up ids.
 - The token goes only into the Authorization header and the host's secret store (`localHost`: `secrets.json`, mode
@@ -18,5 +18,6 @@
 - A change of the contract (`contract/calls.schema.json`, `events.schema.json`: routes, bodies, results, events) —
   `CONTRACT` in `index.mjs` and `version` in `package.json` go up together; the routes of `src/server.mjs` and the
   table of the contract stay equal (a test checks).
-- `npm test` before every commit. No AI in commits or pull requests: no co-author trailers, no "Generated with".
+- No AI in commits or pull requests: no co-author trailers, no "Generated with".
+- Do not run tests in the session (`npm test`): the pull request runs them; only when the human asks.
 - Changes go through pull requests; tags and pushes only when the owner asks.
