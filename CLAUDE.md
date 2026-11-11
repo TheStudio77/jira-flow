@@ -20,4 +20,10 @@
   table of the contract stay equal (a test checks).
 - No AI in commits or pull requests: no co-author trailers, no "Generated with".
 - Do not run tests in the session (`npm test`): the pull request runs them; only when the human asks.
+- A test file is no longer than 1500 lines: a suite, a scene and the shared code in `tests/` — helpers and the runner. A
+  long file runs as one process and is not split between the blocks of a run. A file past the limit is split into suite
+  files by topic (`tests/<topic>.test.mjs`), the shared code goes to its own file next to them (`tests/helpers.mjs`).
+  Checks move word for word and in the same order; a suite sets up by itself the environment the checks before the cut
+  left. The runner runs the suites at once, in lines of blocks. A new check goes to the suite of its topic, not to the
+  biggest one. In repositories with test-audit (from 0.4.0) a long file is an auditor error.
 - Changes go through pull requests; tags and pushes only when the owner asks.
