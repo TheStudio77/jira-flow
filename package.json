@@ -28,5 +28,8 @@
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "claude-module": "github:MisaGu/claude-module#v3.13.0"
   }
 }

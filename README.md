@@ -203,7 +203,8 @@ on — after a decision of its own about it (a test report accepted or sent back
 
 - Everything in English: code, comments, messages, README, schemas. Other languages only in `locales/` and test
   fixtures. Every key, status and code is an enum value with a label in `locales/en.json`.
-- No dependencies: Node 22 and its `fetch`.
+- No runtime dependencies: Node 22 and its `fetch`. `claude-module` is a dev dependency of the tests: it decides
+  whether a big or slow suite runs in parts (rule Zh7 of its core).
 - `npm test` must pass before a commit. `JIRA_FLOW_FORBID=word1,word2 npm test` also checks that no host is named.
 - A change of the contract: `CONTRACT` (index.mjs) and `version` (package.json) go up together.
 - Commits and pull requests name no AI: no co-author trailers, no "Generated with".
